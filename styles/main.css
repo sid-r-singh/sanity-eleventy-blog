@@ -1,0 +1,563 @@
+
+
+/*
+ * Note to self: Improve copywriting.
+ * Note to self: Make pride mode 🏳️‍🌈, bright mode 🌞 and night mode 🌒. 
+ */
+
+/* TODO: Clean up gay hover effects. */
+/* TODO: Gay fallbacks. */
+
+/* Reset default padding and margins .*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+html {
+    font-size: var(--text-size-base);
+}
+
+/* Set the default font and color for the body. */
+body {
+    background-color: var(--body-background-color);
+    color: #0c412b;
+    color: var(--text-color);
+
+    font-family: sans-serif;
+    font-size: var(--text-size-default);
+}
+
+/* Style the selected text and elements. */
+::selection{
+    background: var(--selection);
+    -webkit-background-clip: none;
+    -webkit-text-fill-color: var(--text-color); 
+}
+
+/* Global elements. */
+strong {
+    font-weight: 600;
+}
+
+/* Set the size and position of the header. */
+header {   
+    background-color: var(--body-background-color);
+    box-sizing: border-box;
+    display: block;
+
+    width: 80%;
+    width: 80vw;
+    max-width: 900px;
+    max-width: var(--main-text-width-wide); 
+    height: 132px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 1;
+}
+
+header p#full-name {
+    display: block;
+    width: 7rem;
+
+    margin-top: 30px;
+
+    font-size: calc(var(--text-size-large) - 0.25rem);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    line-height: 1.15em;
+}
+
+header p#full-name a, header p#contact-email a {
+    text-decoration: none;
+}
+
+header p#contact-email {
+    transform: rotate(90deg);
+    bottom: 6.75rem;
+    right: -2.75rem;
+    width: 10.25rem;
+    position: fixed;
+}
+
+header p#job-title {
+    width: 11.7rem;
+    position: fixed;
+    transform: rotate(-90deg);
+    top: 8.25rem;
+    left: -3.4rem;
+    text-align: right;
+}
+
+
+/* Style the navigation. */
+header nav {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 50px;
+
+    font-size: var(--text-size-small);
+}
+
+header nav ul {
+    display: block;
+
+    position: absolute;
+    right: 0;
+}
+
+header nav ul li {
+    display: inline-block;
+    margin-left: 2em;
+
+    list-style-type: none;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    width: auto;
+}
+
+header nav ul li a:hover {
+    position: relative;
+}
+
+header nav ul li a:hover:before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-image: linear-gradient(
+        45deg,
+        var(--red) 16.666%, 
+        var(--orange) 16.666%, 
+        var(--orange) 33.333%, 
+        var(--yellow) 33.333%, 
+        var(--yellow) 50%, 
+        var(--green) 50%, 
+        var(--green) 66.666%, 
+        var(--blue) 66.666%, 
+        var(--blue) 83.333%, 
+        var(--purple) 83.333%
+    );
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: 100% 0;
+    position: absolute;
+    bottom: -0.25em; 
+    right: 0;
+    animation: rainbow-simple-animation-rev 1s ease-out forwards;
+}
+
+/* Set the main container. */
+.main {
+    width: 80%;
+    width: 80vw;
+    max-width: 666px;
+    max-width: var(--main-text-width);
+    font-size: var(--text-size-default);
+    line-height: 1.25em;
+    margin: 250px auto 150px auto;
+}
+
+main h1 {
+    font-weight: 600;
+    font-size: var(--text-size-large);
+    line-height: 1.25em;
+    margin-bottom: 1.5em;
+}
+
+main h1 span {
+    font-size: var(--text-size-small);
+    text-transform: uppercase;
+}
+
+main h2 {
+    line-height: 1.25em;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+main h2 a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+main p, main ul li, main ol li {
+    font-weight: 400;
+    margin-bottom: 1.5em;
+    color: var(--text-color-blocks);
+}
+
+main p a, main ul li a, main ol li a, footer p a {
+    position: relative;
+    color: var(--text-color-blocks);
+    text-decoration: none;
+    border-bottom: 1px solid var(--text-color-blocks);
+}
+
+main p a:hover, main ul li a:hover,main ol li a:hover, footer p a:hover {
+    color: var(--red);
+    border-bottom: 1px solid var(--red);
+    transition: 0.5s;
+}
+
+main p a:hover:before, main ul li a:hover:before, main ol li a:hover:before, footer p a:hover:before {
+    display: block;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-image: linear-gradient(
+        45deg,
+        var(--red) 16.666%, 
+        var(--orange) 16.666%, 
+        var(--orange) 33.333%, 
+        var(--yellow) 33.333%, 
+        var(--yellow) 50%, 
+        var(--green) 50%, 
+        var(--green) 66.666%, 
+        var(--blue) 66.666%, 
+        var(--blue) 83.333%, 
+        var(--purple) 83.333%
+    );
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: 100% 0;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    animation: rainbow-simple-animation-rev 0.5s ease-out forwards;
+}
+
+main p#location {
+    margin-top: 3em;
+    font-size: var(--text-size-small);
+}
+
+/* ---- FRONT PAGE ---- */
+#front main h1 {
+    font-size: 125px;
+    font-size: var(--text-size-xlarge);
+    line-height: 130px;
+    line-height:  calc(var(--text-size-xlarge) + 5px);
+    max-width: 666px;
+    width: var(--main-text-width);
+    margin-bottom: 75px;
+    background-size: 580px;
+}
+
+#front main h2 {
+    font-size: 1.75em;
+    margin-bottom: 1em;
+}
+
+#front main p {
+    color: var(--text-color)
+}
+
+/* ---- WRITING PAGE ---- */
+#writing main {
+    max-width: 666px;
+    max-width: var(--main-text-width);
+}
+
+#writing main .posts-block  {
+    margin-bottom: 0;
+}
+
+#writing main .latest {
+    margin-bottom: 0em;
+}
+
+#writing main h1, .similar {
+    max-width: 666px;
+    width: var(--main-text-width);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#writing main .posts-list-item h2 {
+    font-size: var(--text-size-large);
+    margin-top: 0em;
+    margin-bottom: 0.25em;
+}
+
+/* ---- CTA LINK ---- */
+.cta-link {
+    max-width: 666px;
+    max-width: var(--main-text-width);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+    font-size: var(--text-size-small);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.cta-link a {
+    padding-bottom: 8px;
+    border-width: 3px;
+    color: var(--text-color);
+    border-color: var(--text-color);
+    letter-spacing: 0.5px;
+}
+
+.cta-link a:hover {
+    border-bottom: 3px solid var(--text-color);
+    color: var(--red);
+    animation: none;
+}
+
+.cta-link a:hover:before {
+    height: 3px;
+    bottom: -3px;
+}
+
+/* ---- PATREON ---- */
+.patreon {
+    display: block;
+    width: 100%;
+    max-width: 900px;
+    max-width: var(--main-text-width-wide);
+    /* border-radius: 3px; */
+    background-color: var(--color-post-4);
+    padding: var(--text-size-large);
+    padding-left: calc(var(--text-size-large) * 3.5);
+    background-image: url("/static/icons/patreon.png");
+    background-size: auto 50%;
+    background-position: left var(--text-size-large) center;
+    background-repeat: no-repeat;
+    position: relative;
+    font-weight: 600;
+    border: none;
+    margin-top: 1.5em;
+    color: var(--text-color-tags);
+}
+
+.patreon:after {
+    content: "→";
+    margin-left: 0.5em;
+}
+
+.patreon:hover:before {
+    height: 0;
+}
+
+.patreon:hover:after {
+    margin-left: 1em;
+    transition: 0.5s;
+}
+
+.patreon:hover {
+    color: var(--text-color-tags);
+    border: none;
+    background-color: var(--color-post-3);
+}
+
+#post main .wide .patreon {
+    margin-bottom: -1em;
+}
+
+#post main h2 a {
+    color: var(--text-color);
+    text-decoration: underline;
+    transition: color 0.5s;
+}
+
+#post main h2 a:hover {
+    color: var(--red);
+}
+
+/* ---- ARCHIVE ---- */
+#archive main h1, #writing main h1, #writing main h1.similar {
+    font-size: var(--text-size-small);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.post-list .posts-list-item {
+    padding: 1.5em 0;
+    border-bottom: 1px solid var(--text-color-transparent);
+    position: relative;
+    max-width: 666px;
+    max-width: var(--main-text-width);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.post-list .posts-list-item:last-child  {
+    border-bottom: none;
+}
+
+.post-list .posts-list-item a {
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+}
+
+.post-list .posts-list-item a:hover {
+    text-decoration: none;
+}
+
+.post-list .posts-list-item p {
+    color: var(--text-color);
+    margin-bottom: 0;
+    font-size: var(--text-size-small);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.post-list .posts-list-item p.categories {
+    font-size: var(--text-size-xsmall);
+}
+
+.post-list .posts-list-item p span {
+    margin-right: 1em;
+}
+
+.post-list .posts-list-item h2 {
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+}
+
+/* ---- POSTS PAGE ---- */
+.wide {
+    width: 100%;
+    max-width: 900px;
+    width: var(--main-text-width-wide);
+    position: relative;
+    left: -117px;
+    padding: 0;
+}
+
+@media screen and (max-width: 1125px) {
+    header p#contact-email {
+        right: -3.75rem;
+    }
+    header p#job-title {
+        left: -4.5rem;
+    }
+
+    .wide, #post main pre  {
+        width: 100%;
+        left: 0;
+        position: static;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    header p#contact-email, header p#job-title  {
+        display: none;
+    }
+
+    header {
+        position: absolute;
+        top: 0em;
+        left: 0;
+        width: 80%;
+    }
+
+    header nav {
+        padding-top: 1.5em;
+        width: 100%;
+        height: 182px;
+        position: absolute;
+        right: 0;
+
+        z-index: 0;
+    }
+    header nav ul  {
+        right: 0;  
+    }
+    header nav ul li {
+        margin-left: 0;
+        text-align: right;
+        margin-bottom: 0.5em;
+        display: block;
+        width: auto;
+    }
+
+    #front main {
+        margin-top: 350px;
+    }
+
+    /* #post .wide.posts-block {
+        width: 100%;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+    }
+
+    .posts-latest {
+        width: 100%;
+        max-width: 100%;
+    } */
+}
+
+@media screen and (max-width: 750px) {
+    #front main h1 {
+        margin-top: -100px;
+        width: 15.5rem;
+        background-size: 95%;
+        margin-bottom: 1rem;
+    }
+}
+
+
+@media screen and (max-width: 666px) {
+    #post main .wide, #post main pre {
+        width: 100%;
+        width: 100vw;
+        position: relative;
+        left: -10%;
+        left: -10vw;
+    }
+
+    #post main .wide .patreon {
+        width: 80%;
+        width: 80vw;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .patreon {
+        background-size: auto 35px;
+        font-size: var(--text-size-regular);
+        padding-left: 90px;
+    }
+
+    #post main iframe.wide {
+        width: 90%;
+        width: 90vw;
+        left: -5%;
+        left: -5vw;
+    }
+
+    #post main pre {
+        font-size: var(--text-size-regular);
+    }
+}
+
+/* To enforce alt tags */
+img:not([alt]) {
+    filter: blur(5px);
+}

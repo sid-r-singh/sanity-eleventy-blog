@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        {% seo %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="monetization" content="$ilp.uphold.com/ExLzDY3YKFpY">
+        <link rel='icon' href='/favicon.ico' type='image/x-icon'/>
+
+        {% capture css %}
+            {% include ../styles/variables.css %}
+            {% include ../styles/main.css %}
+            {% include ../styles/gay.css %}
+            {% include ../styles/fonts.css %}
+        {% endcapture %}
+        <style>
+            {{css | safe}}
+        </style>
+    </head>
+
+    <body id={{pageId}}>
+        {% include components/header.liquid pageId: pageId %}
+        
+        <div class="main">
+            <main> 
+                {{content}} 
+            </main>
+        </div>
+
+        {% include components/footer.liquid %}
+    </body>
+</html>
